@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>L U T N I Ț A | Home</title>
+    <meta name="description" content="LUTNIȚA Gallery | Home">
+    {{>head}}
+</head>
+
+<body>
+    {{>header}}
+    <main class="main">
+        <section id="text_section" class="text_section">
+            <h2 class="title">{{title}}</h2>
+            <div id="text_container" class="text_container" onclick=location.assign('/exhibitions/flaviucacoveanu')>
+                <div class="names_wrapper">
+                    <div class="names_container">
+                        <img class="artist_name"
+                            src="https://d23fd8t3cgh0wq.cloudfront.net/img/exhibitions/namepaths/cacoveanu.svg">
+                    </div>
+                </div>
+
+                <h4 class="exhibition_date">18 Aug 2023 — 15 Oct 2023</h4>
+            </div>
+        </section>
+        <section class="image_container"><img class="center_image_index"
+                src="https://d23fd8t3cgh0wq.cloudfront.net/img/flaviucacoveanu.webp" alt="center_image"
+                onclick=location.assign('/exhibitions/flaviucacoveanu')>
+        </section>
+        <section class="right_space"></section>
+    </main>
+    {{>footer}}
+    <script src="js/menu_index.js"></script>
+</body>
+
+</html>

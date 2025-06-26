@@ -1,0 +1,607 @@
+/* --------- GENERAL --------- */
+
+body {
+    cursor: url('cursors/cursor_full.svg'), auto;
+    display: flex;
+    flex-direction: column;
+    /* height: 100vh; */
+    overflow: auto;
+    overflow-x: hidden !important;
+}
+
+.full_body {
+    height: 100vh;
+}
+
+.artists_body {
+    overflow-y: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    padding-bottom: 16vh;
+}
+
+#main_artists>section {
+    width: unset;
+}
+
+main>section {
+    display: flex;
+    /* width: 33.3vw; */
+    height: 100%;
+}
+
+header {
+    width: 100%;
+    min-height: 12vh;
+}
+
+footer {
+    display: flex;
+    width: 100%;
+    height: 17vh;
+    position: fixed;
+    top: 85%;
+    background-color: #ffffff;
+}
+
+/* --------- TEXT --------- */
+
+.title_menu {
+    visibility: hidden;
+}
+
+.text_section {
+    flex-direction: column;
+    width: 20vw;
+    z-index: 0;
+}
+
+#text_section_artists {
+    display: flex;
+    width: 100vw !important;
+}
+
+h2 {
+    font-family: 'Barlow', sans-serif;
+    color: #777777;
+    line-height: 1em;
+    font-size: 1.3em;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 2em;
+    text-align: left;
+    margin-inline-start: 4.5vw;
+}
+
+h3 {
+    line-height: 1em;
+    font-size: 1.5em;
+    /* font-weight: 600; */
+}
+
+h4:first-of-type {
+    margin-top: 0.5em;
+    margin-bottom: 0.2em;
+}
+
+h4 {
+    font-size: 1.05em;
+    font-weight: 400;
+    color: #666;
+}
+
+.text_container>h5 {
+    margin-top: 0.2em;
+    font-size: .8em;
+    font-weight: 400;
+    margin-inline-start: 1.2em;
+}
+
+.text_container,
+.text_container_nohover {
+    border: 1px solid #ffffff;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    font-size: 13rem;
+    margin-bottom: 2em;
+    margin-inline-start: 5em;
+    padding-bottom: 1em;
+    padding-top: 2em;
+}
+
+.text_container,
+.exhib_link {
+    transition: border 0.3s ease-out;
+}
+
+.text_container:hover {
+    border: 1px solid #666;
+    border-left: none;
+    border-right: none;
+    /* margin-bottom: calc(2em + -1px);
+    margin-top: -1px; */
+    cursor: url('cursors/cursor_empty.svg'), pointer;
+}
+
+.text_container_artists {
+    margin-inline-start: 8vw;
+    width: 12vw;
+}
+
+.text_container_info {
+    margin-inline-start: 2em;
+}
+
+.upcoming {
+    padding-top: 4vh;
+}
+
+.names_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.names_wrapper_news {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/* .names_container {
+    padding-bottom: 1em;
+} */
+
+.artist_name {
+    height: 2.8em;
+    margin-top: -1em;
+}
+
+.news_name {
+    width: 10em;
+    height: 2.8em;
+    margin-top: -1.7em;
+    margin-bottom: 0.7em;
+}
+
+#list_wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+#artist_list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 70vh;
+    align-items: flex-end;
+}
+
+#artist_space {
+    width: 40%;
+}
+
+.first_name {
+    font-weight: 500;
+    letter-spacing: -0.6px;
+    font-size: 1.4em;
+    transform: scaleY(0.97);
+    position: relative;
+    bottom: 2px;
+}
+
+.last_name {
+    font-family: 'times', 'Times', 'Times New Roman', serif;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.exhibition_date {
+    transform: scaleY(1.05);
+}
+
+h6 {
+    color: #666;
+    text-decoration: underline;
+    font-size: .8em;
+}
+
+.pdf_mob {
+    display: none;
+}
+
+.pdf {
+    text-align: right;
+    margin: 0.5em 0;
+}
+
+.videoBtn {
+    cursor: url('cursors/cursor_empty.svg'), pointer;
+    text-align: right;
+}
+
+.vidBtnSvitlo {
+    padding-bottom: 5rem;
+}
+
+.videowrapper {
+    opacity: 0;
+    width: 43vw;
+    margin-top: 8vh;
+    transition: opacity .5s;
+    text-align: center;
+}
+
+.artist_video {
+    margin-top: unset;
+}
+
+video {
+    max-width: 100%;
+    cursor: url('cursors/cursor_empty.svg'), pointer;
+}
+
+.video_visible {
+    opacity: 1;
+}
+
+#info_mob {
+    display: none;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 75%;
+    background: rgb(255 255 255);
+    color: #666;
+    padding: 6em 1.5em 0 1.5em;
+    font-size: 14rem;
+}
+
+#info {
+    transition: opacity .2s;
+    z-index: 9;
+}
+
+.info_text {
+    padding-bottom: 1em;
+}
+
+.info_wrapper {
+    font-size: 1.05em;
+    font-weight: 400;
+    color: #666;
+    /* transform: scaleY(1.05); */
+}
+
+.info_wrapper a {
+    text-decoration: underline;
+}
+
+.exhib_link {
+    border: 1px solid #ffffff;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    font-size: 12rem;
+    margin-bottom: 2em;
+    margin-inline-start: 5em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    margin-top: 1em;
+}
+
+.exhib_link:hover {
+    border: 1px solid #666;
+    border-left: none;
+    border-right: none;
+    cursor: url('cursors/cursor_empty.svg'), pointer;
+}
+
+.exhib_link_text {
+    font-size: unset;
+    letter-spacing: 1rem;
+}
+
+#artist_exhib_date {
+    margin-top: 2rem;
+    margin-bottom: 0.2em;
+}
+
+.news_website>a {
+    text-decoration: underline;
+}
+
+.news_text {
+    line-height: 20rem;
+    font-size: 12rem;
+    letter-spacing: 1rem;
+    color: #666;
+    margin-top: -1.4em;
+}
+
+/* --------- CENTER --------- */
+
+.placeholder {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+@keyframes placeHolderShimmer {
+    0% {
+        background-position: -468px 0
+    }
+
+    100% {
+        background-position: 468px 0
+    }
+}
+
+.animated-background {
+    animation-duration: 1.25s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: darkgray;
+    background: linear-gradient(to right, #eeeeee 10%, #dddddd 18%, #eeeeee 33%);
+    background-size: 800px 104px;
+    height: 100%;
+    position: relative;
+}
+
+.exhnamehidden {
+    display: none;
+}
+
+.load_image {
+    visibility: visible;
+    position: absolute;
+    opacity: 1;
+    z-index: 0;
+    transition: opacity .3s;
+}
+
+.content-wrapper {
+    position: absolute;
+    width: 43vw;
+    height: 75%;
+    opacity: 1;
+    transition: opacity .3s;
+    z-index: 0;
+}
+
+.load_image_hidden {
+    opacity: 0;
+}
+
+.image_container_mob,
+.center_image_mob,
+.image_container_mob_one {
+    display: none;
+}
+
+.image_container {
+    justify-content: center;
+    width: 60vw;
+    height: 71vh;
+    position: sticky;
+    top: 12vh;
+}
+
+.one_exhib {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: flex-start; */
+    /* width: 67vw; */
+}
+
+.center_image_index,
+.center_image_exhib {
+    max-width: 80%;
+    max-height: 72vh;
+    object-fit: contain;
+    cursor: url('cursors/cursor_empty.svg'), pointer;
+    z-index: 1;
+}
+
+.center_image_one_exhib {
+    max-width: 80%;
+    max-height: 56vh;
+    cursor: url('cursors/cursor_empty.svg'), pointer;
+    opacity: 0.3;
+    transition: unset;
+}
+
+.fade {
+    opacity: 1;
+    transition: opacity .9s cubic-bezier(0.21, 0.51, 0.58, 1);
+}
+
+.captions {
+    font-size: 9.5rem;
+    letter-spacing: 1rem;
+    color: #666;
+    padding: 12rem 0;
+    text-align: center;
+    opacity: 0;
+    height: 10%;
+}
+
+.fade_captions {
+    opacity: 1;
+    font-size: 10rem;
+    transition: all .4s cubic-bezier(0.56, 0.02, 1, 1);
+}
+
+.img_counter {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-inline-start: 4em;
+    transition: opacity .5s cubic-bezier(0.22, 0.02, 1, 1);
+}
+
+#counter_text {
+    padding-right: 25rem;
+}
+
+.counters {
+    font-size: 12rem;
+    letter-spacing: 1rem;
+    color: #666;
+}
+
+.team_role {
+    color: #9f9f9f;
+}
+
+.icinfo_text_center {
+    justify-content: flex-start;
+}
+
+.space_image {
+    height: 7%;
+}
+
+#empty_w {
+    display: none;
+}
+
+/* --------- RIGHT ---------- */
+
+.right_space {
+    width: 20vw;
+    justify-content: flex-end;
+    /* align-items: center; */
+}
+
+.year_container {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    margin-inline-end: 4.5vw;
+    color: #c6c6c6;
+    line-height: 27rem;
+    font-size: 0.85em;
+}
+
+.year_container:hover {
+    cursor: url('cursors/cursor_empty.svg'), pointer;
+}
+
+.year {
+    transform: scaleY(1.10);
+    transition: color 0.2s ease-out
+}
+
+.year.hovered,
+.year:hover {
+    color: #666;
+}
+
+.close_video {
+    font-size: 12rem;
+    color: #666;
+    margin-inline-end: 4.5vw;
+}
+
+.video_artist {
+    margin-top: unset;
+}
+
+/* --------- FOOTER --------- */
+
+#logo_img {
+    height: 2.3em;
+}
+
+/* --------- NAVBAR --------- */
+
+.navbar_hidden {
+    opacity: 0;
+    /* 0 */
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+    margin-inline-start: 3.5vw;
+    /* 2em */
+    transition: all 1s cubic-bezier(0.94, 0.53, 1, 0.99);
+    z-index: 0;
+}
+
+.navbar {
+    opacity: 100;
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+    margin-inline-start: 4.5vw;
+    transition: all 1s cubic-bezier(0.63, 0.85, 1, 0.99);
+    z-index: 1;
+}
+
+.nav-btns {
+    font-family: 'Barlow', sans-serif;
+    /*none*/
+    visibility: visible;
+    display: block;
+    font-weight: 600;
+    /*400*/
+    font-size: 1.15em;
+    /*1.1*/
+    /* letter-spacing: 3rem; */
+    align-self: center;
+    text-align: center;
+    cursor: url('cursors/cursor_empty.svg'), pointer;
+    color: #777777;
+    /*2a2a2a*/
+}
+
+.nav-btns_hidden {
+    visibility: hidden;
+    /* hidden */
+}
+
+#close {
+    display: none;
+}
+
+#logo_container {
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+    width: 60%;
+    margin-inline-end: 4.5vw;
+}
+
+/* White cursor on video */
+
+.dark_mode body,
+.dark_mode a,
+.dark_mode h6 {
+    cursor: url('cursors/cursor_white.svg'), default !important;
+}
+
+#relocating_date {
+    margin-top: -0.5em;
+}
+
+#removemeafterrelocation {
+    color: #ffffff;
+}

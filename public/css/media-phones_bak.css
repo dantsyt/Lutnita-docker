@@ -1,0 +1,128 @@
+@media screen and (max-width: 480px) {
+    /* --------- GENERAL --------- */
+
+    header {
+        min-height: 4vh;
+    }
+
+    main {
+        flex-grow: 0;
+        flex-direction: column;
+        justify-content: unset;
+        flex-wrap: unset;
+        height: unset;
+    }
+
+    main>section {
+        width: 100vw;
+        height: unset;
+    }
+
+    footer {
+        flex-direction: column;
+        height: 14vh;
+        justify-content: center;
+    }
+
+    /* --------- TEXT --------- */
+
+    h4:first-of-type {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    h2 {
+        margin-bottom: unset;
+        padding-bottom: 1em;
+        text-align: right;
+    }
+
+    h4 {
+        text-align: left;
+    }
+
+    .text_container {
+        margin-inline-start: unset;
+        min-width: 100%;
+        padding: 0 2em;
+    }
+
+    .text_section {
+        width: unset;
+    }
+
+    .first_name {
+        text-align: left;
+    }
+
+    .last_name {
+        text-align: left;
+        transform: scaleY(1.2);
+        font-size: 1.15em;
+        padding: unset;
+    }
+
+    #name {
+        background: url('../img/flaviu_mob.png') no-repeat;
+        background-size: contain;
+        /* scales the image */
+        background-position: left;
+        /* centers the image */
+        align-self: flex-start;
+        height: 100vh !important;
+    }
+
+    /* --------- CENTER --------- */
+
+    .image_container {
+        width: unset;
+        position: unset;
+        top: unset;
+    }
+
+    .center_image {
+        max-height: unset;
+        padding: 0 2em;
+    }
+
+    /* --------- ** {{ FOOTER }} ** --------- */
+
+    .navbar_hidden {
+        opacity: 0;
+        margin-inline-start: 1em;
+        position: absolute;
+        background-color: #ffffff99;
+    }
+
+    .nav-btns {
+        visibility: hidden;
+        align-self: unset;
+        text-align: unset;
+        margin-bottom: 8px;
+    }
+
+    .nav-btns_hidden {
+        visibility: hidden;
+    }
+
+    .navbar {
+        flex-direction: column;
+        position: absolute;
+        margin-inline-start: 2em;
+        background-color: #ffffff99;
+    }
+
+    #logo_container {
+        display: inherit;
+        align-self: center;
+        justify-content: unset;
+        width: unset;
+        margin-inline-end: unset;
+    }
+}
+
+/* Min-width: 320px (smaller phone viewpoints)
+Min-width: 480px (small devices and most phones)
+Min-width: 768px (most tablets)
+Min-width: 992px (smaller desktop viewpoints)
+Min-width: 1200px (large devices and wide screens) */

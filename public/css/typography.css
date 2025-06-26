@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'grotesk';
+    src: url('fonts/NeueHaasGroteskDisplay-Reg.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+ }
+
+@font-face {
+    font-family: "Times New Roman";
+    src: url('fonts/TimesNewRomanItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family:"times";
+    src:url("fonts/254aebd4-cb82-49f7-8127-3141510ad10a.woff2") format("woff2"),url("fonts/8cfe6dc9-5f79-442d-bee6-b46190707bc8.woff") format("woff");
+}
+
+html {
+    font-size: 1px;
+}
+
+body {
+    font-family: 'grotesk', sans-serif;
+    font-size: 16rem;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #222;
+}
+
