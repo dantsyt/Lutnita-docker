@@ -9,7 +9,7 @@ services:
       - mongo-data:/data/db
 
   lutnita-app:
-    build: .
+    build: ./webapp
     ports:
       - "9000:3000"
     networks:
