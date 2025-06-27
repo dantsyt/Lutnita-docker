@@ -11,6 +11,7 @@ const exhibDBRouter = require('./routers/exhibitionDBRouter')
 const exhibRouter = require('./routers/exhibitionRouter')
 const newsDBRouter = require('./routers/newsDBRouter')
 const newsRouter = require('./routers/newsRouter')
+const healthcheck = require('./routers/healthcheck')
 const logger = require('./logger')
 const { morganMiddleware, ipMiddleware } = require('./morganMiddleware')
 
@@ -77,6 +78,7 @@ app.get('/team', (req, res) => {
 app.get('/sitemap.xml', (req, res) => {
     res.sendFile(sitemapPath)
 })
+app.use('/healthcheck', healthcheck)
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404'
