@@ -9,6 +9,10 @@ healthRouter.get('/', async (req, res) => {
         const isUp = !!healthCheckData
 
         if (isUp) {
+          const healthcheckDB = {
+            message: 'MongoDB OK',
+        }
+            res.send(healthcheckDB)
             res.status(200).end()
         } else {
             res.status(502).end()
