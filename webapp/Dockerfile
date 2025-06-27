@@ -12,5 +12,4 @@ RUN apk add --update nodejs npm && npm install && npm audit fix
 
 EXPOSE 3000
 
-ENTRYPOINT ["node", "./src/app.js"]
-
+ENTRYPOINT ["npm", "start"]

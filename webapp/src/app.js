@@ -12,7 +12,6 @@ const exhibRouter = require('./routers/exhibitionRouter')
 const newsDBRouter = require('./routers/newsDBRouter')
 const newsRouter = require('./routers/newsRouter')
 const healthcheck = require('./routers/healthcheck')
-const healthcheckMongo = require('./routers/healthCheckMongoRouter')
 const logger = require('./logger')
 const { morganMiddleware, ipMiddleware } = require('./morganMiddleware')
 
@@ -28,15 +27,6 @@ const sitemapPath = path.join(__dirname, '../sitemap.xml')
 app.set('view engine', 'hbs')
 app.set('views', templatesPath)
 hbs.registerPartials(partialsPath)
-
-// HTTPs redirect
-
-// app.use((req, res, next) => {
-//     if (req.header('x-forwarded-proto') !== 'https')
-//       res.redirect(`https://${req.header('host')}${req.url}`)
-//     else
-//       next()
-//   })
 
 // Set static directory and routers
 
@@ -80,7 +70,6 @@ app.get('/sitemap.xml', (req, res) => {
     res.sendFile(sitemapPath)
 })
 app.use('/healthcheck', healthcheck)
-app.use('/healthcheckMongo', healthcheckMongo)
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404'
@@ -98,6 +87,14 @@ app.use((err, req, res, next) => {
         res.status(500).send('Internal server error')
 })
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
     logger.info(`LISTENING on ${port}`)
+})
+
+process.on('SIGTERM', () => {
+    logger.info('SIGTERM signal received: closing HTTP server')
+    server.close(() => {
+        logger.info('HTTP server closed')
+        process.exit(0)
+    })
 })

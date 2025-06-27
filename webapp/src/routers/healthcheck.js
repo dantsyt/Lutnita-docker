@@ -1,18 +1,28 @@
 const express = require("express")
+const HealthCheckRepository = require('./healthcheckMongoRep')
 const router = express.Router({})
+const healthCheckRepo = new HealthCheckRepository()
 
-router.get('/', async (_req, res, _next) => {
-
+router.get('/', async (_req, res) => {
     const healthcheck = {
-        uptime: process.uptime(),
-        message: 'OK',
-        timestamp: Date.now()
+        status: 'UP',
+        uptime: `${Math.floor(process.uptime())}s`,
+        timestamp: new Date().toISOString(),
+        components: {}
     }
     try {
-        res.send(healthcheck)
+        const dbCheck = await healthCheckRepo.getOrCreate()
+        const dbStatus = dbCheck ? 'UP' : 'DOWN'
+        healthcheck.components.mongo = { status: dbStatus }
+        if (dbStatus !== 'UP') {
+            healthcheck.status = 'DOWN'
+            return res.status(502).send(healthcheck)
+        }
+        res.status(200).send(healthcheck)
     } catch (error) {
-        healthcheck.message = error
-        res.status(503).send()
+        healthcheck.status = 'DOWN'
+        healthcheck.components.mongo = { status: 'DOWN', error: error.message }
+        res.status(502).send(healthcheck)
     }
 })
 
