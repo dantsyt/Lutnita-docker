@@ -8,10 +8,10 @@ COPY . /lutnita-app
 
 WORKDIR /lutnita-app
 
-RUN apk add --update nodejs npm curl && npm install && npm audit fix
+RUN apk add --update nodejs npm curl jq && npm install && npm audit fix
 
 EXPOSE 3000
 
-HEALTHCHECK --interval=5s --timeout=5s CMD curl localhost:3000/healthcheck || exit 1
+HEALTHCHECK --interval=5s --timeout=5s CMD curl localhost:3000/healthcheck | jq 'select(.status == "UP")'
 
 ENTRYPOINT ["npm", "start"]
