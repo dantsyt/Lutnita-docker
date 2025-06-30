@@ -8,6 +8,7 @@ class HealthCheckRepository {
             {
                 new: true,
                 upsert: true,
+                maxTimeMS: 5000
             }
         )
         return data
