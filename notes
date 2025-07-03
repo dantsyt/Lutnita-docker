@@ -1,0 +1,3 @@
+8f5d813c2c3cd3b594b35e5511103b628563683843b157932c552b6c354f7ff2
+
+curl --header 'Authorization: Bearer ' "https://eu.infisical.com/api/v3/secrets/raw/MONGODB_URI?workspaceSlug=lutnita-h6-ha&environment=prod" | echo "MONGODB_URI=$(jq .secret.secretValue)" > .env
