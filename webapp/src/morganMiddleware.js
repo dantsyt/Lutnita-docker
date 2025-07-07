@@ -1,6 +1,7 @@
 const morgan = require('morgan')
 const logger = require('./logger')
 const requestIp = require('request-ip')
+const os = require('os')
 
 morgan.token('header-ip', function (req, res) {
     const ffHeaderValue = req.headers['x-real-ip']
@@ -11,6 +12,8 @@ morgan.token('trueIp', function (req) {
     return requestIp.getClientIp(req)
 })
 
+morgan.token('hostname', () => { return os.hostname() })
+
 const morganFormat = `{
     "headerIp": ":header-ip",
     "originalsourceip": ":trueIp",
@@ -20,7 +23,8 @@ const morganFormat = `{
     "method": ":method",
     "requestPath": ":url",
     "status": ":status",
-    "responseTime": ":response-time"
+    "responseTime": ":response-time",
+    "hostname": ":hostname"
 }`
 
 function messageHandler(message) {
