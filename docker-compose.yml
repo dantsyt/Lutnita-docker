@@ -1,35 +1,30 @@
 services:
   mongodb:
-    image: mongo
+    image: "192.168.0.13:5000/mongodb:test" 
     ports:
       - "27017:27017"
     networks:
       - lutnita-network
-    volumes:
-      - mongo-data:/data/db
+    deploy:
+      replicas: 1
+      endpoint_mode: dnsrr 
+      placement:
+        constraints:
+          - node.labels.db_node==true
 
   lutnita-app:
-    build: ./webapp
+    image: "192.168.0.13:5000/lutnita:reg"
     ports:
       - "9000:3000"
-    networks:
-      - lutnita-network
     depends_on:
       - mongodb
-
-  mongo-express:
-    image: mongo-express:1.0.2-20-alpine3.19
-    environment:
-      ME_CONFIG_MONGODB_SERVER: mongodb
-    ports:
-      - "8081:8081"
     networks:
       - lutnita-network
+    deploy:
+      replicas: 5
+      placement:
+        constraints:
+          - node.labels.db_node==false
 
 networks:
   lutnita-network:
-    driver: bridge
-
-volumes:
-  mongo-data:
-    driver: local
