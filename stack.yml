@@ -1,0 +1,30 @@
+services:
+  mongodb:
+    image: "192.168.0.13:5000/mongodb:test" 
+    ports:
+      - "27017:27017"
+    networks:
+      - lutnita-network
+    deploy:
+      replicas: 1
+      endpoint_mode: dnsrr 
+      placement:
+        constraints:
+          - node.labels.db_node==true
+
+  lutnita-app:
+    image: "192.168.0.13:5000/lutnita:reg"
+    ports:
+      - "9000:3000"
+    depends_on:
+      - mongodb
+    networks:
+      - lutnita-network
+    deploy:
+      replicas: 5
+      placement:
+        constraints:
+          - node.labels.db_node==false
+
+networks:
+  lutnita-network:
